@@ -7,20 +7,23 @@ class MoneyBox:
     def can_add(self, v): # True, если можно добавить v монет, False иначе
         if self.capacity > v:
             self.status = True
+            self.add(v)
             #return True
         else:
             self.status = False
             #return False
 
     def add(self, v): # положить v монет в копилку. Гарантируется, что метод add(self, v) будет вызываться только если can_add(self, v) – True.
-        #self.sum += v
-        self.can_add(v)
-        if self.status is True:
+        if self.capacity > (self.sum + v):
             self.sum += v
+        #self.can_add(v)
+        #if self.status is True:
+            #self.sum += v
 
 a = MoneyBox(5)
-#a.can_add(7)
-a.add(3)
+a.can_add(7)
+a.add(7)
 
 print(a.capacity)
+print(a.status)
 print(a.sum)
