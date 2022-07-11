@@ -2,7 +2,7 @@ class MoneyBox:
     def __init__(self, capacity=0, saving=0): # конструктор с аргументом – вместимость копилки
         self.capacity = capacity
         self.saving = saving
-        self.free = 0
+        #self.free = 0
         #self.status = True
 
     def can_add(self, v): # True, если можно добавить v монет, False иначе
@@ -18,11 +18,11 @@ class MoneyBox:
         if self.can_add(v) is True: # проверяем в add, что вернула can_add. если все хорошо, добавляем монеты в копилку и возвращаем True или False
         #if self.status is True:
             self.saving += v
-            self.free = self.capacity - self.saving
-            return self.free
-        else:
-            self.free = self.capacity - self.saving
-            return self.free
+            self.capacity = self.capacity - self.saving
+            return self.capacity
+        #else:
+            #self.free = self.capacity - self.saving
+            #return self.free
 
 a = MoneyBox(15)
 a.add(5)
