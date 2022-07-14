@@ -7,7 +7,7 @@ class MoneyBox:
 
     def can_add(self, v): # True, если можно добавить v монет, False иначе
         # проверяем в can_add можно ли положить монету в копилку (если мы положим монету в копилку, не привысит ли она capacity?)
-        if self.capacity > (self.saving + v):
+        if self.capacity > v:
             #self.status = True
             return True
         else:
@@ -18,11 +18,11 @@ class MoneyBox:
         if self.can_add(v) is True: # проверяем в add, что вернула can_add. если все хорошо, добавляем монеты в копилку и возвращаем True или False
         #if self.status is True:
             self.saving += v
-            self.capacity = self.capacity - self.saving
+            self.capacity = self.capacity - v
             return self.capacity
-        #else:
+        else:
             #self.free = self.capacity - self.saving
-            #return self.free
+            return self.capacity
 
 a = MoneyBox(15)
 a.add(5)
